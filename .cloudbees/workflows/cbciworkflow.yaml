@@ -28,28 +28,28 @@ jobs:
           job-name: "unstable"
           parameters: '{"NAME":"CBCI"}'
 
-  # cbci-long-1-hour:
-  #   timeout-minutes: 175  
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "trigger1"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-long-1-hour:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "trigger1"
+          parameters: '{"NAME":"CBCI"}'
 
   
-  # cbci-long-4-hour:
-  #   timeout-minutes: 175  
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "trigger2"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-long-4-hour:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "trigger2"
+          parameters: '{"NAME":"CBCI"}'
 
   # cbci-schedule:
   #   timeout-minutes: 175  
