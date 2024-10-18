@@ -14,8 +14,8 @@ jobs:
         name: invoke-cbci-job
         uses: ./
         with:
-          url: https://jenkins.saas-preprod.beescloud.com/
-          username: admin
-          token: b3iKs6dnzXCU9uM7McBFI8
+          url: https://gauntlet-3.cloudbees.com/rosaas/
+          username: ${{ secrets.CBCI_PRIVATE_USER }}
+          token: ${{ secrets.CBCI_PRIVATE_TOKEN }}
           job-name: aborted
 
