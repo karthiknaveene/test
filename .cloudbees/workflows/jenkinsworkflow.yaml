@@ -106,7 +106,51 @@ jobs:
   #         parameters: '{"NAME":"CloudBees"}'
 
 
-  jenkins-unauthorised:
+  jenkins-unstable:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "unstable1"
+          parameters: '{"NAME":"CloudBees"}'
+
+  jenkins-aborted:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "aborted1"
+          parameters: '{"NAME":"CloudBees"}'
+
+  jenkins-failure:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "testfail"
+          parameters: '{"NAME":"CloudBees"}'
+
+  jenkins-not-built:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "not_built"
+          parameters: '{"NAME":"CloudBees"}'
+
+  jenkins-success:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
@@ -116,6 +160,7 @@ jobs:
           integration-name: "LocalJenkinsTrigger"
           job-name: "paramJob"
           parameters: '{"NAME":"CloudBees"}'
+          
 
 
   # jenkins-integration-absent:
