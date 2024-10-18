@@ -1,0 +1,60 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: action
+name: jenkins build actions
+inputs:
+  integration-name:  # id of input
+    description: 'Integeration name for invoking via plugin'
+    required: false
+    default: ''
+  url:  # id of input
+    description: 'jenkins url'
+    required: false
+    default: ''
+  username:  # id of input
+    description: 'user name'
+    required: false
+    default: ''
+  token:  # id of input
+    description: 'token'
+    required: false
+    default: ''
+  job-name:  # id of input
+    description: 'job name'
+    required: true
+  test-type:  # id of input
+    description: 'test type'
+    default: ''
+  test-result-location:  # id of input
+    description: 'test result location'
+    default: ''
+  parameters:  # id of input
+    description: 'parameters as json'
+    default: '{}'
+
+outputs:
+  jenkins_output:
+    value: ${{ steps.invoke-jenkins-job.outputs.jenkins_output_var }}
+    description: Jenkins env variable output
+
+
+runs:
+  using: composite
+  steps:
+    - id: invoke-jenkins-job
+      name: invoke-jenkins-job
+      # uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-5428-cc7e5d97e26080ad8ae1e94e20d4a35647dba02b
+      # DB fix test image
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-5428-87e7e99f7fa3659823aa9ae6273121a8c2d65057 
+      shell: sh
+      env:
+        CONFIG_JSON: '{"metaInfo":{"integrationName":"${{ inputs.integration-name }}","url":"${{ inputs.url }}","toolType":"JENKINS","username":"${{ inputs.username }}","token":"${{ inputs.token }}","jobName":"${{ inputs.job-name }}","testType":"${{ inputs.test-type }}","fileName":"${{ inputs.test-result-location }}","parameters":${{ inputs.parameters }},"commitId":"${{ cloudbees.scm.sha }}"}}'      
+        RUN_ID: ${{ cloudbees.run_id }}
+        JOB_ID: ${{ job.id }}
+        STEP_ID: ${{ step.internal.id }}
+        DNS_URL: ${{ cloudbees.api.url }}
+        JWT_TOKEN: ${{ cloudbees.api.token }}
+      run: |
+        set -x
+        cd /app
+        ./jenkins_actions_app invoke -b $CONFIG_JSON
+        
