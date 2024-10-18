@@ -8,15 +8,25 @@ on:
       - 'main'
 
 jobs:
-  # cbci-unstable:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "unstable"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-unstable:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "unstable"
+          parameters: '{"NAME":"CBCI"}'
+
+  cbci-unstable-1:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "unstable"
+          parameters: '{"NAME":"CBCI"}'
 
   # cbci-long-1-hour:
   #   timeout-minutes: 175  
@@ -41,45 +51,75 @@ jobs:
   #         job-name: "trigger2"
   #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-schedule:
-    timeout-minutes: 175  
+  # cbci-schedule:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "controller12"
+  #         job-name: "test2"
+
+  cbci-failure:
     steps:
       - id: jenkins-via-plugin
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controller12"
-          job-name: "test2"
+          integration-name: "C5Trigger"
+          job-name: "failure"
+          parameters: '{"NAME":"CBCI"}'
 
-  # cbci-failure:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "failure"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-aborted:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "aborted"
+          parameters: '{"NAME":"CBCI"}'
 
-  # cbci-aborted:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "aborted"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-success:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "folder-0/param"
+          parameters: '{"NAME":"CBCI"}'
 
-  # cbci-success:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "folder-0/param"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-failure-1:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "failure"
+          parameters: '{"NAME":"CBCI"}'
+
+  cbci-aborted-1:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "aborted"
+          parameters: '{"NAME":"CBCI"}'
+
+  cbci-success-1:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "C5Trigger"
+          job-name: "folder-0/param"
+          parameters: '{"NAME":"CBCI"}'
 
   # cbci-unstable-private:
   #   steps:
