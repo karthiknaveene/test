@@ -58,7 +58,7 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "JenkinsPrivateActions"
+          integration-name: "JenkinsTrigger"
           job-name: "job10"
 
 
@@ -69,7 +69,7 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "JenkinsPrivateActions"
+          integration-name: "JenkinsTrigger"
           job-name: "job6"
 
   jenkins-unstable: 
@@ -105,15 +105,6 @@ jobs:
           job-name: "aborted"
           parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-long-run-old:    
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalTestactions"
-          job-name: "test5"
-          parameters: '{"NAME":"CloudBees"}'
 
   jenkins-scheduled:
     timeout-minutes: 175  
@@ -134,7 +125,7 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "security"
+          integration-name: "LocalCodeTest12"
           job-name: "paramJob"
           parameters: '{"NAME":"CloudBees"}'
 
@@ -172,30 +163,30 @@ jobs:
 
 
 
-  trigger-mstest-test-conversion-using-action:
-    steps:
-    - name: Trigger jenkins test
-      #uses: cloudbees-io/cbci-run-job@v2
-      uses: ./
-      with:
-        url: ${{ vars.CJOC_URL }}
-        username: ${{ secrets.CJOC_USERNAME }}
-        token: ${{ secrets.CJOC_TOKEN }}
-        job-name : "cbci-test-reports-mstest"
-        test-type : "MSTEST"
-        test-result-location : "*.trx"
+  # trigger-mstest-test-conversion-using-action:
+  #   steps:
+  #   - name: Trigger jenkins test
+  #     #uses: cloudbees-io/cbci-run-job@v2
+  #     uses: ./
+  #     with:
+  #       url: ${{ vars.CJOC_URL }}
+  #       username: ${{ secrets.CJOC_USERNAME }}
+  #       token: ${{ secrets.CJOC_TOKEN }}
+  #       job-name : "cbci-test-reports-mstest"
+  #       test-type : "MSTEST"
+  #       test-result-location : "*.trx"
 
-  jenkins-run-job-without-output:
-    steps:
-      - id: jenkins-job
-        name: invoke-jenkins-job
-        #uses: cloudbees-io/cbci-run-job@v2
-        uses: ./
-        with:
-          url: ${{ vars.CJOC_URL }}
-          username: ${{ secrets.CJOC_USERNAME }}
-          token: ${{ secrets.CJOC_TOKEN }}
-          job-name: JenkinsRunActionTestJob
+  # jenkins-run-job-without-output:
+  #   steps:
+  #     - id: jenkins-job
+  #       name: invoke-jenkins-job
+  #       #uses: cloudbees-io/cbci-run-job@v2
+  #       uses: ./
+  #       with:
+  #         url: ${{ vars.CJOC_URL }}
+  #         username: ${{ secrets.CJOC_USERNAME }}
+  #         token: ${{ secrets.CJOC_TOKEN }}
+  #         job-name: JenkinsRunActionTestJob
 
 
 
