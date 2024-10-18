@@ -81,48 +81,48 @@ jobs:
           job-name: "folder-0/param"
           parameters: '{"NAME":"CBCI"}'
 
-  # cbci-unstable-private:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "RosaasTrigger"
-  #         job-name: "unstable"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-unstable-private:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "RosaasTrigger"
+          job-name: "unstable"
+          parameters: '{"NAME":"CBCI"}'
 
 
-  # cbci-aborted-private:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "RosaasTrigger"
-  #         job-name: "aborted"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-aborted-private:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "RosaasTrigger"
+          job-name: "aborted"
+          parameters: '{"NAME":"CBCI"}'
 
 
-  # cbci-failure-private:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "RosaasTrigger"
-  #         job-name: "failure"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-failure-private:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "RosaasTrigger"
+          job-name: "failure"
+          parameters: '{"NAME":"CBCI"}'
 
 
-  # cbci-success-private:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "RosaasTrigger"
-  #         job-name: "test"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-success-private:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "RosaasTrigger"
+          job-name: "test"
+          parameters: '{"NAME":"CBCI"}'
 
   
   cbci-nojob:
