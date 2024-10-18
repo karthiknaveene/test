@@ -8,177 +8,206 @@ on:
       - 'main'
 
 jobs:
-  cbci-unstable:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "C5Trigger"
-          job-name: "unstable"
-          parameters: '{"NAME":"CBCI"}'
-
-  # cbci-long-1-hour:
-  #   timeout-minutes: 175  
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "trigger1"
-  #         parameters: '{"NAME":"CBCI"}'
-
-  
-  # cbci-long-4-hour:
-  #   timeout-minutes: 175  
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "C5Trigger"
-  #         job-name: "trigger2"
-  #         parameters: '{"NAME":"CBCI"}'
-
-  cbci-schedule:
+  jenkins-job-absent:
     timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "c6Trigger"
-          job-name: "test3"
+          integration-name: "JenkinsTrigger"
+          job-name: "nojob"
+          parameters: '{"NAME":"CloudBees"}'
 
-  cbci-failure:
+  jenkins-failed-integration: 
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "C5Trigger"
-          job-name: "failure"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "JenkinsDemoRecord"
+          job-name: "sleep-2"
+          parameters: '{"NAME":"CloudBees"}'
 
-  cbci-aborted:
+  jenkins-success:   
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "C5Trigger"
-          job-name: "aborted"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "JenkinsTrigger"
+          job-name: "param1"
+          parameters: '{"NAME":"Jenkins\u0020Actions"}'
 
-  cbci-success:
+  jenkins-success-folder-empty-parameter:   
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "C5Trigger"
-          job-name: "folder-0/param"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "JenkinsTrigger"
+          job-name: "folderTest/paramJob"
 
-  cbci-unstable-private:
+  jenkins-success-4-hours:
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "RosaasTrigger"
+          integration-name: "JenkinsPrivateActions"
+          job-name: "job10"
+
+
+  jenkins-long-1-hour:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "JenkinsPrivateActions"
+          job-name: "job6"
+
+  jenkins-unstable: 
+    timeout-minutes: 175   
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "JenkinsTrigger"
           job-name: "unstable"
-          parameters: '{"NAME":"CBCI"}'
+          parameters: '{"NAME":"Jenkins"}'
 
-
-  cbci-aborted-private:
+  jenkins-failed: 
+    timeout-minutes: 175   
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "RosaasTrigger"
-          job-name: "aborted"
-          parameters: '{"NAME":"CBCI"}'
-
-
-  cbci-failure-private:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "RosaasTrigger"
+          integration-name: "JenkinsTrigger"
           job-name: "failure"
-          parameters: '{"NAME":"CBCI"}'
+          parameters: '{"NAME":"Jenkins"}'
 
-
-  cbci-success-private:
+  jenkins-aborted:  
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "RosaasTrigger"
-          job-name: "test"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "JenkinsTrigger"
+          job-name: "aborted"
+          parameters: '{"NAME":"CloudBees"}'
 
-  
-  cbci-nojob:
+  jenkins-long-run-old:    
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "Rosaas"
-          job-name: "nojob"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "LocalTestactions"
+          job-name: "test5"
+          parameters: '{"NAME":"CloudBees"}'
 
-  cbci-failed:
+  jenkins-scheduled:
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controllerTest"
-          job-name: "nojob"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "paramJob"
+          parameters: '{"NAME":"CloudBees"}'
 
-  cbci-absent:
+
+  jenkins-integration-absent:
+    timeout-minutes: 175  
     steps:
-      - id: jenkins-via-plugin
+      - id: jenkins-via-plugin1
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "C5Trigger"
-          job-name: "nojob"
-          parameters: '{"NAME":"CBCI"}'
+          integration-name: "security"
+          job-name: "paramJob"
+          parameters: '{"NAME":"CloudBees"}'
 
-  # trigger-mstest-test-conversion-using-action:
+  jenkins-non-default-parameter-job:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "JenkinsTrigger"
+          job-name: "param1"
+          parameters: '{"NAME":"CloudBees"}'
+
+  jenkins-non-default-paramater-job-empty:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "JenkinsTrigger"
+          job-name: "param1"
+
+  jenkins-non-default-invalid-parameter:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "JenkinsTrigger"
+          job-name: "param1"
+          parameters: '{"NAME12":"CloudBees"}'
+
+
+
+  trigger-mstest-test-conversion-using-action:
+    steps:
+    - name: Trigger jenkins test
+      #uses: cloudbees-io/cbci-run-job@v2
+      uses: ./
+      with:
+        url: ${{ vars.CJOC_URL }}
+        username: ${{ secrets.CJOC_USERNAME }}
+        token: ${{ secrets.CJOC_TOKEN }}
+        job-name : "cbci-test-reports-mstest"
+        test-type : "MSTEST"
+        test-result-location : "*.trx"
+
+  jenkins-run-job-without-output:
+    steps:
+      - id: jenkins-job
+        name: invoke-jenkins-job
+        #uses: cloudbees-io/cbci-run-job@v2
+        uses: ./
+        with:
+          url: ${{ vars.CJOC_URL }}
+          username: ${{ secrets.CJOC_USERNAME }}
+          token: ${{ secrets.CJOC_TOKEN }}
+          job-name: JenkinsRunActionTestJob
+
+
+
+  # jenkins-unauthorised:
+  #   outputs:
+  #     jenkins_output: ${{ steps.jenkins-job.outputs.jenkins_output }}
+    
   #   steps:
-  #   - name: Trigger cbci test
-  #     #uses: cloudbees-io/cbci-run-job@v2
-  #     uses: ./
-  #     with:
-  #       url: ${{ vars.CJOC_URL }}
-  #       username: ${{ secrets.CJOC_USERNAME }}
-  #       token: ${{ secrets.CJOC_TOKEN }}
-  #       job-name : "cbci-test-reports-mstest"
-  #       test-type : "MSTEST"
-  #       test-result-location : "*.trx"
-
-  # cbci-run-job-without-output:
-  #   steps:
-  #     - id: cbci-job
-  #       name: invoke-cbci-job
-  #       #uses: cloudbees-io/cbci-run-job@v2
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
   #       uses: ./
   #       with:
-  #         url: ${{ vars.CJOC_URL }}
-  #         username: ${{ secrets.CJOC_USERNAME }}
-  #         token: ${{ secrets.CJOC_TOKEN }}
-  #         job-name: JenkinsRunActionTestJob
-  
-  
-    
+  #         integration-name: "LocalTestactions"
+  #         job-name: "paramJob1"
+  #         parameters: '{"NAME":"CloudBees"}'
