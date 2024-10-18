@@ -5,7 +5,7 @@ name: workflow
 on:
   push:
     branches:
-      - 'main'
+      - 'jenkins'
 
 jobs:
   jenkins-job-absent:
@@ -163,30 +163,30 @@ jobs:
 
 
 
-  # trigger-mstest-test-conversion-using-action:
-  #   steps:
-  #   - name: Trigger jenkins test
-  #     #uses: cloudbees-io/cbci-run-job@v2
-  #     uses: ./
-  #     with:
-  #       url: ${{ vars.CJOC_URL }}
-  #       username: ${{ secrets.CJOC_USERNAME }}
-  #       token: ${{ secrets.CJOC_TOKEN }}
-  #       job-name : "cbci-test-reports-mstest"
-  #       test-type : "MSTEST"
-  #       test-result-location : "*.trx"
+  trigger-mstest-test-conversion-using-action:
+    steps:
+    - name: Trigger cbci test
+      #uses: cloudbees-io/cbci-run-job@v2
+      uses: ./
+      with:
+        url: https://c2.saas-preprod.beescloud.com/
+        username: cloudbees
+        token: ND7TD5zU0k9XQRYGRg2N
+        job-name : "cbci-test-reports-mstest"
+        test-type : "MSTEST"
+        test-result-location : "*.trx"
 
-  # jenkins-run-job-without-output:
-  #   steps:
-  #     - id: jenkins-job
-  #       name: invoke-jenkins-job
-  #       #uses: cloudbees-io/cbci-run-job@v2
-  #       uses: ./
-  #       with:
-  #         url: ${{ vars.CJOC_URL }}
-  #         username: ${{ secrets.CJOC_USERNAME }}
-  #         token: ${{ secrets.CJOC_TOKEN }}
-  #         job-name: JenkinsRunActionTestJob
+  cbci-run-job-without-output:
+    steps:
+      - id: cbci-job
+        name: invoke-cbci-job
+        #uses: cloudbees-io/cbci-run-job@v2
+        uses: ./
+        with:
+          url: https://c2.saas-preprod.beescloud.com/
+          username: cloudbees
+          token: ND7TD5zU0k9XQRYGRg2N
+          job-name: JenkinsRunActionTestJob
 
 
 
