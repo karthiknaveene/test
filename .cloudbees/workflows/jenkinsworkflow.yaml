@@ -107,7 +107,7 @@ jobs:
           parameters: '{"NAME":"CloudBees"}'
 
 
-  jenkins-unstable:
+  jenkins-unstable-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
@@ -118,7 +118,7 @@ jobs:
           job-name: "unstable1"
           parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-aborted:
+  jenkins-aborted-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
@@ -129,7 +129,7 @@ jobs:
           job-name: "aborted1"
           parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-failure:
+  jenkins-failure-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
@@ -140,7 +140,7 @@ jobs:
           job-name: "testfail"
           parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-not-built:
+  jenkins-not-built-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
@@ -151,7 +151,7 @@ jobs:
           job-name: "not_built"
           parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-success:
+  jenkins-success-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
