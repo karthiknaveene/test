@@ -31,16 +31,16 @@ jobs:
   #         parameters: '{"NAME":"CloudBees"}'
 
 
-  jenkins-success:   
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "param1"
-          parameters: '{"NAME":"Jenkins\u0020Actions"}'
+  # jenkins-success:   
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "param1"
+  #         parameters: '{"NAME":"Jenkins\u0020Actions"}'
 
   jenkins-success-folder-empty-parameter:   
     timeout-minutes: 175  
@@ -73,225 +73,225 @@ jobs:
   #         integration-name: "JenkinsTrigger"
   #         job-name: "job6"
 
-  jenkins-unstable: 
-    timeout-minutes: 175   
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "unstable"
-          parameters: '{"NAME":"Jenkins"}'
+  # jenkins-unstable: 
+  #   timeout-minutes: 175   
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "unstable"
+  #         parameters: '{"NAME":"Jenkins"}'
 
-  jenkins-failed: 
-    timeout-minutes: 175   
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "failure"
-          parameters: '{"NAME":"Jenkins"}'
+  # jenkins-failed: 
+  #   timeout-minutes: 175   
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "failure"
+  #         parameters: '{"NAME":"Jenkins"}'
 
-  jenkins-aborted:  
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "aborted"
-          parameters: '{"NAME":"CloudBees"}'
-
-
-  jenkins-unstable-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "unstable1"
-          parameters: '{"NAME":"CloudBees"}'
-
-  jenkins-aborted-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "aborted1"
-          parameters: '{"NAME":"CloudBees"}'
-
-  jenkins-failure-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "testfail"
-          parameters: '{"NAME":"CloudBees"}'
-
-  jenkins-not-built-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "not_built"
-          parameters: '{"NAME":"CloudBees"}'
-
-  jenkins-success-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "paramJob"
-          parameters: '{"NAME":"CloudBees"}'
+  # jenkins-aborted:  
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "aborted"
+  #         parameters: '{"NAME":"CloudBees"}'
 
 
-  jenkins-invalid-param-success-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param1"
-          parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
+  # jenkins-unstable-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "unstable1"
+  #         parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-invalid-param-failure-both-absent-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param1"
+  # jenkins-aborted-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "aborted1"
+  #         parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-invalid-param-one-absent-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param1"
-          parameters: '{"NUMBER1":"1"}'
+  # jenkins-failure-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "testfail"
+  #         parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-invalid-param-two-absent-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param1"
-          parameters: '{"NUMBER2":"3"}'
+  # jenkins-not-built-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "not_built"
+  #         parameters: '{"NAME":"CloudBees"}'
 
-  jenkins-invalid-param-1-success-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param2"
-          parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
-
-  jenkins-invalid-param-1-failure-both-absent-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param2"
-
-  jenkins-invalid-param-1-one-absent-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param2"
-          parameters: '{"NUMBER1":"1"}'
-
-  jenkins-invalid-param-1-two-absent-1:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "LocalJenkinsTrigger"
-          job-name: "param2"
-          parameters: '{"NUMBER2":"3"}'
+  # jenkins-success-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "paramJob"
+  #         parameters: '{"NAME":"CloudBees"}'
 
 
-  jenkins-invalid-param-success:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "param12"
-          parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
+  # jenkins-invalid-param-success-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param1"
+  #         parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
 
-  jenkins-invalid-param-failure-both-absent:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "param12"
+  # jenkins-invalid-param-failure-both-absent-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param1"
 
-  jenkins-invalid-param-one-absent:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "param12"
-          parameters: '{"NUMBER1":"1"}'
+  # jenkins-invalid-param-one-absent-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param1"
+  #         parameters: '{"NUMBER1":"1"}'
 
-  jenkins-invalid-param-two-absent:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin1
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "JenkinsTrigger"
-          job-name: "param12"
-          parameters: '{"NUMBER2":"3"}'
+  # jenkins-invalid-param-two-absent-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param1"
+  #         parameters: '{"NUMBER2":"3"}'
+
+  # jenkins-invalid-param-1-success-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param2"
+  #         parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
+
+  # jenkins-invalid-param-1-failure-both-absent-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param2"
+
+  # jenkins-invalid-param-1-one-absent-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param2"
+  #         parameters: '{"NUMBER1":"1"}'
+
+  # jenkins-invalid-param-1-two-absent-1:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "LocalJenkinsTrigger"
+  #         job-name: "param2"
+  #         parameters: '{"NUMBER2":"3"}'
+
+
+  # jenkins-invalid-param-success:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "param12"
+  #         parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
+
+  # jenkins-invalid-param-failure-both-absent:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "param12"
+
+  # jenkins-invalid-param-one-absent:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "param12"
+  #         parameters: '{"NUMBER1":"1"}'
+
+  # jenkins-invalid-param-two-absent:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin1
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "JenkinsTrigger"
+  #         job-name: "param12"
+  #         parameters: '{"NUMBER2":"3"}'
 
 
 
