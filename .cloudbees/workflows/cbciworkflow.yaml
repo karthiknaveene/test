@@ -8,7 +8,7 @@ on:
       - 'cbci-scheduled-preprod'
 
 jobs:
-  cbci-success-12:
+  cbci-success-1:
     steps:
       - id: jenkins-via-plugin
         name: invoke-jenkins-job
@@ -16,6 +16,60 @@ jobs:
         with:
           integration-name: "c6actions"
           job-name: "test3"
+          parameters: '{"NAME":"CBCI"}'
+
+  cbci-success-2:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test3"
+          parameters: '{"NAME":"CBCI"}'
+
+
+  cbci-success-3:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test3"
+          parameters: '{"NAME":"CBCI"}'
+
+
+  cbci-success-4:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test4"
+          parameters: '{"NAME":"CBCI"}'
+
+
+  cbci-success-5:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test4"
+          parameters: '{"NAME":"CBCI"}'
+
+
+  cbci-success-6:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test4"
           parameters: '{"NAME":"CBCI"}'
 
   # cbci-failure-12:
@@ -282,40 +336,40 @@ jobs:
   #         job-name: "nojob"
   #         parameters: '{"NAME":"CBCI"}'
 
-  trigger-mstest-test-conversion-using-action:
-    steps:
-    - name: Trigger cbci test
-      #uses: cloudbees-io/cbci-run-job@v2
-      uses: ./
-      with:
-        url: https://c2.saas-preprod.beescloud.com/
-        username: cloudbees
-        token: ND7TD5zU0k9XQRYGRg2N
-        job-name : "cbci-test-reports-mstest"
-        test-type : "MSTEST"
-        test-result-location : "*.trx"
+  # trigger-mstest-test-conversion-using-action:
+  #   steps:
+  #   - name: Trigger cbci test
+  #     #uses: cloudbees-io/cbci-run-job@v2
+  #     uses: ./
+  #     with:
+  #       url: https://c2.saas-preprod.beescloud.com/
+  #       username: cloudbees
+  #       token: ND7TD5zU0k9XQRYGRg2N
+  #       job-name : "cbci-test-reports-mstest"
+  #       test-type : "MSTEST"
+  #       test-result-location : "*.trx"
 
-  cbci-run-job-without-output:
-    steps:
-      - id: cbci-job
-        name: invoke-cbci-job
-        #uses: cloudbees-io/cbci-run-job@v2
-        uses: ./
-        with:
-          url: https://c2.saas-preprod.beescloud.com/
-          username: cloudbees
-          token: ND7TD5zU0k9XQRYGRg2N
-          job-name: testFreestyle
+  # cbci-run-job-without-output:
+  #   steps:
+  #     - id: cbci-job
+  #       name: invoke-cbci-job
+  #       #uses: cloudbees-io/cbci-run-job@v2
+  #       uses: ./
+  #       with:
+  #         url: https://c2.saas-preprod.beescloud.com/
+  #         username: cloudbees
+  #         token: ND7TD5zU0k9XQRYGRg2N
+  #         job-name: testFreestyle
 
-  cbci-run-job-without-output-1:
-    steps:
-      - id: cbci-job
-        name: invoke-cbci-job
-        #uses: cloudbees-io/cbci-run-job@v2
-        uses: ./
-        with:
-          url: https://c2.saas-preprod.beescloud.com/
-          username: cloudbees
-          token: ND7TD5zU0k9XQRYGRg2N
-          job-name: JenkinsRunActionTestJob
+  # cbci-run-job-without-output-1:
+  #   steps:
+  #     - id: cbci-job
+  #       name: invoke-cbci-job
+  #       #uses: cloudbees-io/cbci-run-job@v2
+  #       uses: ./
+  #       with:
+  #         url: https://c2.saas-preprod.beescloud.com/
+  #         username: cloudbees
+  #         token: ND7TD5zU0k9XQRYGRg2N
+  #         job-name: JenkinsRunActionTestJob
           
