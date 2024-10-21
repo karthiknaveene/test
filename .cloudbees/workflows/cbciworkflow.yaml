@@ -8,26 +8,26 @@ on:
       - 'cbci-scheduled-preprod'
 
 jobs:
-  cbci-success-1:
+  cbci-success-long-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "c6actions"
-          job-name: "test3"
+          integration-name: "c9actions"
+          job-name: "long-run"
           parameters: '{"NAME":"CBCI"}'
 
-  cbci-success-2:
+  cbci-success-long-4:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "c6actions"
-          job-name: "test3"
+          integration-name: "c9actions"
+          job-name: "long-run-1"
           parameters: '{"NAME":"CBCI"}'
 
 
@@ -38,45 +38,45 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "c6actions"
-          job-name: "test3"
+          integration-name: "c9actions"
+          job-name: "test1"
           parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-success-4:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "c6actions"
-          job-name: "test4"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-4:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "c6actions"
+  #         job-name: "test4"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-success-5:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "c6actions"
-          job-name: "test4"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-5:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "c6actions"
+  #         job-name: "test4"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-success-6:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "c6actions"
-          job-name: "test4"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-6:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "c6actions"
+  #         job-name: "test4"
+  #         parameters: '{"NAME":"CBCI"}'
 
   # cbci-failure-12:
   #   steps:
@@ -122,27 +122,27 @@ jobs:
   #         job-name: "not_built"
   #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-success-long-4:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "c6actions"
-          job-name: "test1"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-long-4:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "c6actions"
+  #         job-name: "test1"
+  #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-success-long-schedule:
-    timeout-minutes: 175  
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "c6actions"
-          job-name: "test1"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-long-schedule:
+  #   timeout-minutes: 175  
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "c6actions"
+  #         job-name: "test1"
+  #         parameters: '{"NAME":"CBCI"}'
 
   # cbci-schedule:
   #   timeout-minutes: 175  
