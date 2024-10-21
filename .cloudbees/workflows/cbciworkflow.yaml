@@ -5,7 +5,7 @@ name: workflow
 on:
   push:
     branches:
-      - 'main'
+      - 'cbci-preprod'
 
 jobs:
   cbci-success-12:
