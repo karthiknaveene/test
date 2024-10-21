@@ -306,4 +306,16 @@ jobs:
           username: cloudbees
           token: ND7TD5zU0k9XQRYGRg2N
           job-name: testFreestyle
+
+  cbci-run-job-without-output-1:
+    steps:
+      - id: cbci-job
+        name: invoke-cbci-job
+        #uses: cloudbees-io/cbci-run-job@v2
+        uses: ./
+        with:
+          url: https://c2.saas-preprod.beescloud.com/
+          username: cloudbees
+          token: ND7TD5zU0k9XQRYGRg2N
+          job-name: JenkinsRunActionTestJob
           
