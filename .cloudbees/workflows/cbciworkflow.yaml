@@ -8,15 +8,15 @@ on:
       - 'cbci-scheduled-preprod'
 
 jobs:
-  # cbci-success-12:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "c6actions"
-  #         job-name: "test3"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-success-12:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test3"
+          parameters: '{"NAME":"CBCI"}'
 
   # cbci-failure-12:
   #   steps:
@@ -295,15 +295,15 @@ jobs:
   #       test-type : "MSTEST"
   #       test-result-location : "*.trx"
 
-  # cbci-run-job-without-output:
-  #   steps:
-  #     - id: cbci-job
-  #       name: invoke-cbci-job
-  #       #uses: cloudbees-io/cbci-run-job@v2
-  #       uses: ./
-  #       with:
-  #         url: https://c2.saas-preprod.beescloud.com/
-  #         username: cloudbees
-  #         token: ND7TD5zU0k9XQRYGRg2N
-  #         job-name: JenkinsRunActionTestJob
+  cbci-run-job-without-output:
+    steps:
+      - id: cbci-job
+        name: invoke-cbci-job
+        #uses: cloudbees-io/cbci-run-job@v2
+        uses: ./
+        with:
+          url: https://c2.saas-preprod.beescloud.com/
+          username: cloudbees
+          token: ND7TD5zU0k9XQRYGRg2N
+          job-name: testFreestyle
           
