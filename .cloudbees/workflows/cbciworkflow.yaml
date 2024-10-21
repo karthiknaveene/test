@@ -14,8 +14,8 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controller12"
-          job-name: "test4"
+          integration-name: "c6actions"
+          job-name: "test3"
           parameters: '{"NAME":"CBCI"}'
 
   cbci-failure-12:
@@ -24,7 +24,7 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controller12"
+          integration-name: "c6actions"
           job-name: "failure"
           parameters: '{"NAME":"CBCI"}'
 
@@ -35,7 +35,7 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controller12"
+          integration-name: "c6actions"
           job-name: "aborted"
           parameters: '{"NAME":"CBCI"}'
 
@@ -47,7 +47,7 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controller12"
+          integration-name: "c6actions"
           job-name: "unstable"
           parameters: '{"NAME":"CBCI"}'
 
@@ -58,59 +58,81 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "controller12"
+          integration-name: "c6actions"
           job-name: "not_built"
           parameters: '{"NAME":"CBCI"}'
 
-  # cbci-schedule:
-  #   timeout-minutes: 175  
+  cbci-success-long-4:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test1"
+          parameters: '{"NAME":"CBCI"}'
+
+   cbci-success-long-1:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c6actions"
+          job-name: "test5"
+          parameters: '{"NAME":"CBCI"}'
+
+  cbci-schedule:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c9actions"
+          job-name: "test"
+
+  # cbci-failure-5:
   #   steps:
   #     - id: jenkins-via-plugin
   #       name: invoke-jenkins-job
   #       uses: ./
   #       with:
-  #         integration-name: "controller12"
-  #         job-name: "test2"
+  #         integration-name: "C5Trigger"
+  #         job-name: "failure"
+  #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-failure-5:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "C5Trigger"
-          job-name: "failure"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-aborted-5:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "C5Trigger"
+  #         job-name: "aborted"
+  #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-aborted-5:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "C5Trigger"
-          job-name: "aborted"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-5:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "C5Trigger"
+  #         job-name: "folder-0/param"
+  #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-success-5:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "C5Trigger"
-          job-name: "folder-0/param"
-          parameters: '{"NAME":"CBCI"}'
-
-  cbci-unstable-5:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "C5Trigger"
-          job-name: "unstable"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-unstable-5:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "C5Trigger"
+  #         job-name: "unstable"
+  #         parameters: '{"NAME":"CBCI"}'
 
   # cbci-aborted-1:
   #   steps:
@@ -132,91 +154,91 @@ jobs:
   #         job-name: "folder-0/param"
   #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-unstable-private:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "RosaasTrigger"
-          job-name: "unstable"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-unstable-private:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "RosaasTrigger"
+  #         job-name: "unstable"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-aborted-private:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "RosaasTrigger"
-          job-name: "aborted"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-aborted-private:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "RosaasTrigger"
+  #         job-name: "aborted"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-failure-private:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "RosaasTrigger"
-          job-name: "failure"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-failure-private:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "RosaasTrigger"
+  #         job-name: "failure"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-success-private:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "controller1"
-          job-name: "test2"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-success-private:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "controller1"
+  #         job-name: "test2"
+  #         parameters: '{"NAME":"CBCI"}'
 
-  cbci-unstable-oc:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "controller1"
-          job-name: "unstable"
-          parameters: '{"NAME":"CBCI"}'
-
-
-  cbci-aborted-oc:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "controller1"
-          job-name: "aborted"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-unstable-oc:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "controller1"
+  #         job-name: "unstable"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-failure-oc:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "controller1"
-          job-name: "failure"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-aborted-oc:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "controller1"
+  #         job-name: "aborted"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
-  cbci-success-oc:
-    steps:
-      - id: jenkins-via-plugin
-        name: invoke-jenkins-job
-        uses: ./
-        with:
-          integration-name: "controller1"
-          job-name: "test"
-          parameters: '{"NAME":"CBCI"}'
+  # cbci-failure-oc:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "controller1"
+  #         job-name: "failure"
+  #         parameters: '{"NAME":"CBCI"}'
+
+
+  # cbci-success-oc:
+  #   steps:
+  #     - id: jenkins-via-plugin
+  #       name: invoke-jenkins-job
+  #       uses: ./
+  #       with:
+  #         integration-name: "controller1"
+  #         job-name: "test"
+  #         parameters: '{"NAME":"CBCI"}'
 
 
   # cbci-success-unauthorised:
@@ -230,58 +252,58 @@ jobs:
   #         parameters: '{"NAME":"CBCI"}'
 
   
-  # cbci-nojob:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "controller1"
-  #         job-name: "nojob"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-nojob:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "c9actions"
+          job-name: "nojob"
+          parameters: '{"NAME":"CBCI"}'
 
-  # cbci-failed:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "controller10"
-  #         job-name: "nojob"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-failed-integration:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "controller10"
+          job-name: "nojob"
+          parameters: '{"NAME":"CBCI"}'
 
-  # cbci-absent:
-  #   steps:
-  #     - id: jenkins-via-plugin
-  #       name: invoke-jenkins-job
-  #       uses: ./
-  #       with:
-  #         integration-name: "security"
-  #         job-name: "nojob"
-  #         parameters: '{"NAME":"CBCI"}'
+  cbci-absent:
+    steps:
+      - id: jenkins-via-plugin
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "security"
+          job-name: "nojob"
+          parameters: '{"NAME":"CBCI"}'
 
-  # trigger-mstest-test-conversion-using-action:
-  #   steps:
-  #   - name: Trigger cbci test
-  #     #uses: cloudbees-io/cbci-run-job@v2
-  #     uses: ./
-  #     with:
-  #       url: https://c2.saas-preprod.beescloud.com/
-  #       username: cloudbees
-  #       token: ND7TD5zU0k9XQRYGRg2N
-  #       job-name : "cbci-test-reports-mstest"
-  #       test-type : "MSTEST"
-  #       test-result-location : "*.trx"
+  trigger-mstest-test-conversion-using-action:
+    steps:
+    - name: Trigger cbci test
+      #uses: cloudbees-io/cbci-run-job@v2
+      uses: ./
+      with:
+        url: https://c2.saas-preprod.beescloud.com/
+        username: cloudbees
+        token: ND7TD5zU0k9XQRYGRg2N
+        job-name : "cbci-test-reports-mstest"
+        test-type : "MSTEST"
+        test-result-location : "*.trx"
 
-  # cbci-run-job-without-output:
-  #   steps:
-  #     - id: cbci-job
-  #       name: invoke-cbci-job
-  #       #uses: cloudbees-io/cbci-run-job@v2
-  #       uses: ./
-  #       with:
-  #         url: https://c2.saas-preprod.beescloud.com/
-  #         username: cloudbees
-  #         token: ND7TD5zU0k9XQRYGRg2N
-  #         job-name: JenkinsRunActionTestJob
+  cbci-run-job-without-output:
+    steps:
+      - id: cbci-job
+        name: invoke-cbci-job
+        #uses: cloudbees-io/cbci-run-job@v2
+        uses: ./
+        with:
+          url: https://c2.saas-preprod.beescloud.com/
+          username: cloudbees
+          token: ND7TD5zU0k9XQRYGRg2N
+          job-name: JenkinsRunActionTestJob
   

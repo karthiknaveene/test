@@ -1,17 +1,17 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: action
-name: jenkins build actions
+name: cbci build actions
 inputs:
-  integration-name:  # id of input
-    description: 'Integeration name for invoking via plugin'
+  integration-name:
+    description: 'integration name'
     required: false
     default: ''
   url:  # id of input
-    description: 'jenkins url'
+    description: 'cbci url'
     required: false
     default: ''
   username:  # id of input
-    description: 'user name'
+    description: 'username'
     required: false
     default: ''
   token:  # id of input
@@ -21,6 +21,7 @@ inputs:
   job-name:  # id of input
     description: 'job name'
     required: true
+    default: ''
   test-type:  # id of input
     description: 'test type'
     default: ''
@@ -28,26 +29,25 @@ inputs:
     description: 'test result location'
     default: ''
   parameters:  # id of input
-    description: 'parameters as json'
+    description: 'parameters'
     default: '{}'
 
 outputs:
-  jenkins_output:
-    value: ${{ steps.invoke-jenkins-job.outputs.jenkins_output_var }}
-    description: Jenkins env variable output
+  cbci_output:
+    value: ${{ steps.invoke-cbci-job.outputs.cbci_output_var }}
+    description: CBCI Controller env variable output
 
-
+  
 runs:
   using: composite
   steps:
-    - id: invoke-jenkins-job
-      name: invoke-jenkins-job
-      # uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-5428-cc7e5d97e26080ad8ae1e94e20d4a35647dba02b
-      # DB fix test image
-      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-5428-87e7e99f7fa3659823aa9ae6273121a8c2d65057 
+    - id: invoke-cbci-job
+      name: invoke-cbci-job
+      # uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/cbci-actions:CBP-5902-f7001a1542fdddf5c242e43cf910e42d35563ceb
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/cbci-actions:CBP-6361-ae1bb5004aeeda0eeb2df77cf90234eb28b6cd66
       shell: sh
       env:
-        CONFIG_JSON: '{"metaInfo":{"integrationName":"${{ inputs.integration-name }}","url":"${{ inputs.url }}","toolType":"JENKINS","username":"${{ inputs.username }}","token":"${{ inputs.token }}","jobName":"${{ inputs.job-name }}","testType":"${{ inputs.test-type }}","fileName":"${{ inputs.test-result-location }}","parameters":${{ inputs.parameters }},"commitId":"${{ cloudbees.scm.sha }}"}}'      
+        CONFIG_JSON: '{"metaInfo":{"integrationName":"${{ inputs.integration-name }}","url":"${{ inputs.url }}","toolType":"CBCI","username":"${{ inputs.username }}","token":"${{ inputs.token }}","jobName":"${{ inputs.job-name }}","testType":"${{ inputs.test-type }}","fileName":"${{ inputs.test-result-location }}","parameters":${{ inputs.parameters }},"commitId":"${{ cloudbees.scm.sha }}"}}'
         RUN_ID: ${{ cloudbees.run_id }}
         JOB_ID: ${{ job.id }}
         STEP_ID: ${{ step.internal.id }}
@@ -56,5 +56,4 @@ runs:
       run: |
         set -x
         cd /app
-        ./jenkins_actions_app invoke -b $CONFIG_JSON
-        
+        ./cbci_actions_app invoke -b $CONFIG_JSON
