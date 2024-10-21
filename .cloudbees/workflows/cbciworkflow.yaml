@@ -73,7 +73,7 @@ jobs:
           job-name: "test1"
           parameters: '{"NAME":"CBCI"}'
 
-   cbci-success-long-1:
+  cbci-success-long-1:
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin
@@ -306,4 +306,3 @@ jobs:
           username: cloudbees
           token: ND7TD5zU0k9XQRYGRg2N
           job-name: JenkinsRunActionTestJob
-  
