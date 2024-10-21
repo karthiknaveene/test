@@ -161,7 +161,50 @@ jobs:
           integration-name: "LocalJenkinsTrigger"
           job-name: "paramJob"
           parameters: '{"NAME":"CloudBees"}'
-          
+
+
+  jenkins-invalid-param-success:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "aborted1"
+          parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
+
+  jenkins-invalid-param-failure-both-absent:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "aborted1"
+
+  jenkins-invalid-param-one-absent:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "aborted1"
+          parameters: '{"NUMBER1":"1"}'
+
+  jenkins-invalid-param-two-absent:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "aborted1"
+          parameters: '{"NUMBER2":"3"}'
 
 
   # jenkins-integration-absent:
