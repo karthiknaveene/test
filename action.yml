@@ -57,3 +57,4 @@ runs:
         set -x
         cd /app
         ./cbci_actions_app invoke -b $CONFIG_JSON
+        
