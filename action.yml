@@ -57,4 +57,5 @@ runs:
         set -x
         cd /app
         ./jenkins_actions_app invoke -b $CONFIG_JSON
+
         
