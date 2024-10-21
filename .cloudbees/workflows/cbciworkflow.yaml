@@ -282,18 +282,18 @@ jobs:
   #         job-name: "nojob"
   #         parameters: '{"NAME":"CBCI"}'
 
-  # trigger-mstest-test-conversion-using-action:
-  #   steps:
-  #   - name: Trigger cbci test
-  #     #uses: cloudbees-io/cbci-run-job@v2
-  #     uses: ./
-  #     with:
-  #       url: https://c2.saas-preprod.beescloud.com/
-  #       username: cloudbees
-  #       token: ND7TD5zU0k9XQRYGRg2N
-  #       job-name : "cbci-test-reports-mstest"
-  #       test-type : "MSTEST"
-  #       test-result-location : "*.trx"
+  trigger-mstest-test-conversion-using-action:
+    steps:
+    - name: Trigger cbci test
+      #uses: cloudbees-io/cbci-run-job@v2
+      uses: ./
+      with:
+        url: https://c2.saas-preprod.beescloud.com/
+        username: cloudbees
+        token: ND7TD5zU0k9XQRYGRg2N
+        job-name : "cbci-test-reports-mstest"
+        test-type : "MSTEST"
+        test-result-location : "*.trx"
 
   cbci-run-job-without-output:
     steps:
