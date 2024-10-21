@@ -44,7 +44,7 @@ runs:
       name: invoke-jenkins-job
       # uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-5428-cc7e5d97e26080ad8ae1e94e20d4a35647dba02b
       # DB fix test image
-      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-6361-99940eb3a73f52ab2def38d1bb37df196240d7a7
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/jenkins-actions:CBP-6361-a4518b96543f52fe549378d742f30b0e14f6aa1d
       shell: sh
       env:
         CONFIG_JSON: '{"metaInfo":{"integrationName":"${{ inputs.integration-name }}","url":"${{ inputs.url }}","toolType":"JENKINS","username":"${{ inputs.username }}","token":"${{ inputs.token }}","jobName":"${{ inputs.job-name }}","testType":"${{ inputs.test-type }}","fileName":"${{ inputs.test-result-location }}","parameters":${{ inputs.parameters }},"commitId":"${{ cloudbees.scm.sha }}"}}'      
