@@ -273,6 +273,7 @@ jobs:
   #       test-type : "MSTEST"
   #       test-result-location : "*.trx"
 
+
   # cbci-run-job-without-output:
   #   steps:
   #     - id: cbci-job
