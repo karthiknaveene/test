@@ -206,6 +206,50 @@ jobs:
           job-name: "param1"
           parameters: '{"NUMBER2":"3"}'
 
+  jenkins-invalid-param-1-success-1:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "param2"
+          parameters: '{"NUMBER1":"1","NUMBER2":"3"}'
+
+  jenkins-invalid-param-1-failure-both-absent-1:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "param2"
+
+  jenkins-invalid-param-1-one-absent-1:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "param2"
+          parameters: '{"NUMBER1":"1"}'
+
+  jenkins-invalid-param-1-two-absent-1:
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "LocalJenkinsTrigger"
+          job-name: "param2"
+          parameters: '{"NUMBER2":"3"}'
+
+
   jenkins-invalid-param-success:
     timeout-minutes: 175  
     steps:
