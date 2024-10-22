@@ -50,7 +50,7 @@ jobs:
         uses: ./
         with:
           integration-name: "TestResults1"
-          job-name: "testResultsJunit"
+          job-name: "testResultsGo"
 
   # jenkins-success-4-hours:
   #   timeout-minutes: 175  
