@@ -80,7 +80,7 @@ jobs:
         uses: ./
         with:
           integration-name: "TestResults1"
-          job-name: "testResultsMstest"
+          job-name: "testReportssMstest"
 
   jenkins-jest:   
     timeout-minutes: 175  
@@ -90,7 +90,7 @@ jobs:
         uses: ./
         with:
           integration-name: "TestResults1"
-          job-name: "testResultsJest"
+          job-name: "testReportsJest"
 
   jenkins-selenium:   
     timeout-minutes: 175  
