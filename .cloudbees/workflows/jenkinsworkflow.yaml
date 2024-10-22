@@ -62,6 +62,27 @@ jobs:
           integration-name: "TestResults1"
           job-name: "testResultsJunit"
 
+  jenkins-job:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "test-job"
+
+
+  jenkins-freestyle:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "test-freestyle"
+
   # jenkins-testng:   
   #   timeout-minutes: 175  
   #   steps:
