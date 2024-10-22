@@ -49,8 +49,8 @@ jobs:
         name: invoke-jenkins-job
         uses: ./
         with:
-          integration-name: "JenkinsTrigger"
-          job-name: "folderTest/paramJob"
+          integration-name: "TestResults1"
+          job-name: "testResultsJunit"
 
   # jenkins-success-4-hours:
   #   timeout-minutes: 175  
