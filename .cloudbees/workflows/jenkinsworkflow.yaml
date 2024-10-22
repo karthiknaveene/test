@@ -42,7 +42,7 @@ jobs:
   #         job-name: "param1"
   #         parameters: '{"NAME":"Jenkins\u0020Actions"}'
 
-  jenkins-success-folder-empty-parameter:   
+  jenkins-go:   
     timeout-minutes: 175  
     steps:
       - id: jenkins-via-plugin1
@@ -52,6 +52,55 @@ jobs:
           integration-name: "TestResults1"
           job-name: "testResultsGo"
 
+  jenkins-junit:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "testResultsJunit"
+
+  jenkins-testng:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "testResultsTestng"
+
+  jenkins-mstest:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "testResultsMstest"
+
+  jenkins-jest:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "testResultsJest"
+
+  jenkins-selenium:   
+    timeout-minutes: 175  
+    steps:
+      - id: jenkins-via-plugin1
+        name: invoke-jenkins-job
+        uses: ./
+        with:
+          integration-name: "TestResults1"
+          job-name: "testResultsSelenium"
 
   # jenkins-success-4-hours:
   #   timeout-minutes: 175  
