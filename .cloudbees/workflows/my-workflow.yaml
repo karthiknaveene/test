@@ -1,17 +1,13 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: My workflow
-
+name: Invoke Job via plugin
 on:
-  push:
-    branches:
-      - '**'
-
+  workflow_dispatch:
 jobs:
-  build:
+  Jenkins-Test:
     steps:
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "hello world"
+      - name: invoke-jenkins-job
+        uses: cloudbees-io/jenkins-run-job@v2
+        with:
+          integration-name: "RosaasTrigger"
+          job-name: RandomStatusPipeline
