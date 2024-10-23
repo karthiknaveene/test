@@ -160,7 +160,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/cbci-run-job-private@v2
         with:
           integration-name: "TestResults1"
           job-name: "testResultsSelenium"
