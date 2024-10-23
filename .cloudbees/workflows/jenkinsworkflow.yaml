@@ -47,7 +47,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/cbci-run-job-private@v2
         with:
           integration-name: "TestResults1"
           job-name: "testResultsGo"
@@ -57,7 +57,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/cbci-run-job-private@v2
         with:
           integration-name: "TestResults1"
           job-name: "testResultsJunit"
@@ -67,7 +67,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/cbci-run-job-private@v2
         with:
           integration-name: "TestResults1"
           job-name: "test-job"
@@ -78,7 +78,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/cbci-run-job-private@v2
         with:
           integration-name: "TestResults1"
           job-name: "test-freestyle"
@@ -88,7 +88,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/jenkins-run-job-private@v2
         with:
           integration-name: "LocalTestactions"
           job-name: "junitTest"
@@ -99,7 +99,7 @@ jobs:
     steps:
       - id: jenkins-via-plugin1
         name: invoke-jenkins-job
-        uses: ./
+        uses: cloudbees-io/jenkins-run-job-private@v2
         with:
           integration-name: "LocalTestactions"
           job-name: "aborted"
