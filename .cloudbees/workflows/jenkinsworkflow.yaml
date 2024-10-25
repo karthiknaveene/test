@@ -49,7 +49,7 @@ jobs:
         name: invoke-jenkins-job
         uses: cloudbees-io/cbci-run-job-private@v2
         with:
-          integration-name: "TestResults1"
+          integration-name: "c1actions"
           job-name: "testResultsGo"
 
   jenkins-junit:   
@@ -59,7 +59,7 @@ jobs:
         name: invoke-jenkins-job
         uses: cloudbees-io/cbci-run-job-private@v2
         with:
-          integration-name: "TestResults1"
+          integration-name: "c1actions"
           job-name: "testResultsJunit"
 
   jenkins-job:   
@@ -69,7 +69,7 @@ jobs:
         name: invoke-jenkins-job
         uses: cloudbees-io/cbci-run-job-private@v2
         with:
-          integration-name: "TestResults1"
+          integration-name: "c1actions"
           job-name: "test-job"
 
 
@@ -80,7 +80,7 @@ jobs:
         name: invoke-jenkins-job
         uses: cloudbees-io/cbci-run-job-private@v2
         with:
-          integration-name: "TestResults1"
+          integration-name: "c1actions"
           job-name: "test-freestyle"
 
   jenkins-local-junit:   
@@ -162,7 +162,7 @@ jobs:
         name: invoke-jenkins-job
         uses: cloudbees-io/cbci-run-job-private@v2
         with:
-          integration-name: "TestResults1"
+          integration-name: "c1actions"
           job-name: "testResultsSelenium"
 
   # jenkins-success-4-hours:
