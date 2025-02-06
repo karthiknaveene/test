@@ -1,0 +1,28 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello World from Build
+        run: echo "Hello, World from Build!"
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello World from Test
+        run: echo "Hello, World from Test!"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello World from Deploy
+        run: echo "Hello, World from Deploy!"
