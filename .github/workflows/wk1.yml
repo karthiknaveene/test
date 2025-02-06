@@ -13,7 +13,7 @@ jobs:
       - name: Print Hello World from Build
         run: echo "Hello, World from Build!"
 
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
