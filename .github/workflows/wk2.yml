@@ -6,23 +6,28 @@ on:
       - gh-test
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print Hello World from Build
-        run: echo "Hello, World from Build!"
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print Hello World from Test
-        run: echo "Hello, World from Test!"
 
   deploy:
+
     runs-on: ubuntu-latest
 
+    needs: [build, test]
+
     steps:
-      - name: Print Hello World from Deploy
-        run: echo "Hello, World from Deploy!"
+
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+
+        run: npm install
+
+      - name: Build production bundle
+
+        run: npm run build --prod
+
+      - name: Deploy to server
+
+        run: |
+
+          ssh user@server "mkdir -p /path/to/app && tar -xzf build.tar.gz -C /path/to/app"
+
