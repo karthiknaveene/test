@@ -3,7 +3,7 @@ name: Dispatch multiple workflows
 on:
   push:
     branches:
-      - 'gha-triggeri'  # Trigger the workflow when pushing to 'gha-trigger' branch
+      - 'gha-trigger'  # Trigger the workflow when pushing to 'gha-trigger' branch
 
 jobs:
   failure-dispatch-workflows:
