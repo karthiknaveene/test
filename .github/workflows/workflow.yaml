@@ -1,0 +1,23 @@
+name: Dispatch multiple workflows
+
+on:
+  push:
+    branches:
+      - 'gha-triggeri'  # Trigger the workflow when pushing to 'gha-trigger' branch
+
+jobs:
+  failure-dispatch-workflows:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+        
+      - name: Dispatch workflows using action from current branch
+        uses: ./  # Refers to the action in the current branch (action.yaml should be in the root of the repository)
+        with:
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"  # Your input file for dispatch reques
+          cloudbees-pat : ${{ secrets.WORKFLOW_TRIGGER_TEST_PAT }}  # Token from GitHub Secrets
+          component-id : "312721b7-80f1-4be5-805b-6604bd56d4f6"
+          branch-name : "jenkins-run-job-action"
+          workflow-file-name : "workflow.yml"
