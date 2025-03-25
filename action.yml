@@ -23,7 +23,7 @@ inputs:
 
 runs:
   using: "docker"
-  image: "docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/gha-run-cbp-workflow:CBP-10813-b3545b29c91259beea6fcb06b85af8b03d1e52de"  # @TODO: Add the image
+  image: "docker://ghcr.io/srimanpadmanabancb/gha-action/gha-run-cbp-workflow:latest"  # @TODO: Add the image
   env:
     CLOUDBEES_API_URL: ${{ inputs.cloudbees-url }}
     CLOUDBEES_API_TOKEN: ${{ inputs.cloudbees-pat }}
